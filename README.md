@@ -47,3 +47,6 @@ func main() {
 }
 
 ```
+
+## LICENSE
+[Apache License](LICENSE)
