@@ -1,17 +1,3 @@
-# graceful
-
-`graceful` is a package to apply graceful shutdown for Go projects. It provides cleanup option to cleaning something while
-shutting down the server.
-
-## Installation
-
-```shell
-go get github.com/gozeloglu/graceful
-```
-
-## Example
-
-```go
 package main
 
 import (
@@ -32,10 +18,14 @@ func main() {
 
 	// Create cleanup functions
 	dbCleanUpFunc := func() {
-		db.Close()
+		if err := db.Close(); err != nil {
+			log.Print(err)
+		}
 	}
 	fileCleanUpFunc := func() {
-		f.Close()
+		if err := f.Close(); err != nil {
+			log.Print(err)
+		}
 	}
 
 	g := &graceful.Graceful{}
@@ -45,5 +35,3 @@ func main() {
 		log.Fatal(err)
 	}
 }
-
-```
