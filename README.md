@@ -1,4 +1,7 @@
 # graceful
+[![Go Reference](https://pkg.go.dev/badge/github.com/gozeloglu/graceful.svg)](https://pkg.go.dev/github.com/gozeloglu/graceful)
+
+----
 
 `graceful` is a package to apply graceful shutdown for Go projects. It provides cleanup option to cleaning something while
 shutting down the server.
